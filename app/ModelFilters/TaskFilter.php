@@ -10,4 +10,9 @@ class TaskFilter extends ModelFilter
     {
         $this->unfulfilled();
     }
+
+    public function category($category)
+    {
+        return $this->where('category', $category);
+    }
 }
