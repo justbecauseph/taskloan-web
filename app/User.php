@@ -27,4 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class);
+    }
+
+    public function getWalletAmountAttribute()
+    {
+        return $this->wallet ? $this->wallet->amount : 0;
+    }
 }
