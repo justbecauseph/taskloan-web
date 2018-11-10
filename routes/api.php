@@ -20,4 +20,5 @@ Route::middleware('auth.basic.once')->group(function () {
     Route::post('/me/task', 'UserTaskController@store');
     Route::get('/tasks', 'TaskController@index');
     Route::post('/tasks', 'TaskController@store');
+    Route::post('/tasks/{task}/status', 'TaskStatusController@store');
 });

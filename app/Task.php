@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Task
  * @package TaskLoan
  * @property-read User $user
+ * @property-read User $claimedByUser
  */
 class Task extends Model
 {
@@ -19,6 +20,16 @@ class Task extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function isClaimedBy(User $user): bool
+    {
+        return $this->claimedByUser && $this->claimedByUser->is($user);
+    }
+
+    public function isOwnedBy(User $user): bool
+    {
+        return $this->user->is($user);
     }
 
     public function claimedByUser()
