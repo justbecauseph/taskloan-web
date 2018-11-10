@@ -2,6 +2,7 @@
 
 namespace TaskLoan;
 
+use EloquentFilter\Filterable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -11,10 +12,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Task extends Model
 {
-    protected $fillable = ['title', 'description', 'amount', 'category'];
+    use Filterable;
+
+    protected $fillable = ['title', 'description', 'amount', 'category', 'duration'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function scopeUnfulfilled($query)
+    {
+        return $query->whereNull('completed_at');
     }
 }

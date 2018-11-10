@@ -10,6 +10,11 @@ use TaskLoan\User;
 
 class TaskController extends Controller
 {
+    public function index(Request $request)
+    {
+        return Task::filter($request->all())->get();
+    }
+
     public function store(TaskRequest $request)
     {
         $task = new Task($request->all());

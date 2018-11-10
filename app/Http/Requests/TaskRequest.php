@@ -30,6 +30,7 @@ class TaskRequest extends FormRequest
             'description' => 'required',
             'amount' => 'required|integer|min:10',
             'category' => 'required|in:creative,academic,office',
+            'duration' => 'required',
         ];
     }
 }

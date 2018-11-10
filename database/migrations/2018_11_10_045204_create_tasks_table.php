@@ -20,6 +20,8 @@ class CreateTasksTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->enum('category', ['creative', 'academic', 'office']);
+            $table->string('duration');
+            $table->timestamp('completed_at')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

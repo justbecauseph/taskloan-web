@@ -17,5 +17,6 @@ Route::post('/users', 'UserController@store');
 
 Route::middleware('auth.basic.once')->group(function () {
     Route::post('/me/documents', 'UserDocumentController@store');
+    Route::get('/tasks', 'TaskController@index');
     Route::post('/tasks', 'TaskController@store');
 });
