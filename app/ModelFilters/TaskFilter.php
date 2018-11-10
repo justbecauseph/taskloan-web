@@ -8,7 +8,9 @@ class TaskFilter extends ModelFilter
 {
     public function setup()
     {
-        $this->unfulfilled();
+        if (!$this->input('status')) {
+            $this->unfulfilled();
+        }
 
         $this->with($this->input('with', []));
     }
@@ -26,5 +28,17 @@ class TaskFilter extends ModelFilter
     public function amount($amount)
     {
         return $this->where('amount', $amount);
+    }
+
+    public function status($status)
+    {
+        switch ($status) {
+            case 'completed':
+                return $this->whereNotNull('completed_at');
+            case 'verified':
+                return $this->whereNotNull('verified_at');
+            default:
+                return $this;
+        }
     }
 }
