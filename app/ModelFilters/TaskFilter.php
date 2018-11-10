@@ -15,4 +15,14 @@ class TaskFilter extends ModelFilter
     {
         return $this->where('category', $category);
     }
+
+    public function claimedBy($id)
+    {
+        return $this->where('claimed_by_user_id', $id);
+    }
+
+    public function amount($amount)
+    {
+        return $this->where('amount', $amount);
+    }
 }
