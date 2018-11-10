@@ -3,6 +3,7 @@
 namespace TaskLoan\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use TaskLoan\User;
 
 class TaskRequest extends FormRequest
 {
@@ -13,9 +14,12 @@ class TaskRequest extends FormRequest
      */
     public function authorize()
     {
+        /** @var User $user */
+        $user = $this->user();
 
-        return $this->user()->role === 'taskmaster' &&
-            $this->user()->wallet_amount > (int)$this->input('amount');
+        return $user->role === 'taskmaster' &&
+            $user->isVerified() &&
+            $user->wallet_amount > (int)$this->input('amount');
     }
 
     /**

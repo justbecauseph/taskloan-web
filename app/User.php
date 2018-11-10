@@ -43,6 +43,11 @@ class User extends Authenticatable
         return $this->hasMany(Task::class);
     }
 
+    public function claimedTasks()
+    {
+        return $this->hasMany(Task::class, 'claimed_by_user_id');
+    }
+
     public function getWalletAmountAttribute(): int
     {
         return (int)($this->wallet ? $this->wallet->amount : 0);
@@ -51,5 +56,15 @@ class User extends Authenticatable
     public function decrementWallet($amount)
     {
         $this->wallet()->decrement('amount', $amount);
+    }
+
+    public function isVerified(): bool
+    {
+        return (bool)$this->verified_at;
+    }
+
+    public function hasNoClaims(): bool
+    {
+        return $this->claimedTasks()->unfulfilled()->count() === 0;
     }
 }
