@@ -32,7 +32,8 @@ class UserTaskRequest extends FormRequest
                 Rule::exists('tasks', 'id')
                     ->whereNull('completed_at')
                     ->whereNull('claimed_by_user_id'),
-            ]
+            ],
+            'reason' => 'required',
         ];
     }
 }

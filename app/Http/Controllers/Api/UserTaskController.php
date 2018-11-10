@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use TaskLoan\Http\Controllers\Controller;
 use TaskLoan\Http\Requests\UserTaskRequest;
 use TaskLoan\Task;
+use TaskLoan\LoanApplication;
 
 class UserTaskController extends Controller
 {
@@ -17,6 +18,13 @@ class UserTaskController extends Controller
         $task->claimedByUser()->associate($request->user());
 
         $task->save();
+
+        $loanApplication = new LoanApplication();
+        $loanApplication->amount = $task->amount;
+        $loanApplication->reason = $request->input('reason');
+        $loanApplication->task()->associate($task);
+        $loanApplication->user()->associate($request->user());
+        $loanApplication->save();
 
         return $task;
     }
