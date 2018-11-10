@@ -16,7 +16,6 @@ use Faker\Generator as Faker;
 $factory->define(TaskLoan\User::class, function (Faker $faker) {
     return [
         'name'              => $faker->name,
-        'email'             => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password'          => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token'    => str_random(10),
@@ -26,11 +25,13 @@ $factory->define(TaskLoan\User::class, function (Faker $faker) {
 });
 
 $factory->state(TaskLoan\User::class, 'taskmaster-role', [
+    'email' => 'taskmaster@taskloan.pro',
     'role'        => 'taskmaster',
     'verified_at' => now()
 ]);
 
 $factory->state(TaskLoan\User::class, 'student-role', [
+    'email' => 'student@taskloan.pro',
     'role'   => 'student',
     'school' => 'Polytechnic University of the Philippines'
 ]);
