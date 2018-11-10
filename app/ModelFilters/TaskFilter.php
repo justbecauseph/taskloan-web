@@ -30,6 +30,11 @@ class TaskFilter extends ModelFilter
         return $this->where('claimed_by_user_id', $id);
     }
 
+    public function user($id)
+    {
+        return $this->where('user_id', $id);
+    }
+
     public function amount($amount)
     {
         return $this->where('amount', $amount);
