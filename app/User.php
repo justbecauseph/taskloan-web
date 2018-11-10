@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $this->hasOne(Wallet::class);
     }
 
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
     public function getWalletAmountAttribute()
     {
         return $this->wallet ? $this->wallet->amount : 0;

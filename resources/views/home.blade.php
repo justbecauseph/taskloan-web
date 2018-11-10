@@ -29,7 +29,19 @@
                         <a href="{{ route('task.create') }}" class="btn btn-primary btn-sm">Create Task</a>
                     </div>
                     <div class="card-body">
-
+                        <ul class="list-unstyled m-0">
+                            @foreach ($tasks as $task)
+                                <li class="mb-1">
+                                    <div>
+                                        <a href="#" class="font-weight-bold">{{ $task->title }}</a>
+                                        <p>
+                                            {{ mb_substr($task->description, 0, 30) }}
+                                            @if (mb_strlen($task->description) >= 30) &hellip; @endif
+                                        </p>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
