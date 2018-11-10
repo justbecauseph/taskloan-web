@@ -21,6 +21,11 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function claimedByUser()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function scopeUnfulfilled($query)
     {
         return $query->whereNull('completed_at');
