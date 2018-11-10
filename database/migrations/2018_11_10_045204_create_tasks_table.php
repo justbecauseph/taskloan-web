@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration
             $table->decimal('amount', 19, 4);
             $table->string('title');
             $table->text('description');
+            $table->enum('category', ['creative', 'academic', 'office']);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

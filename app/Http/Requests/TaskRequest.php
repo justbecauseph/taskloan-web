@@ -13,7 +13,9 @@ class TaskRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->wallet_amount > (int)$this->input('amount');
+
+        return $this->user()->role === 'taskmaster' &&
+            $this->user()->wallet_amount > (int)$this->input('amount');
     }
 
     /**
@@ -26,7 +28,8 @@ class TaskRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'amount' => 'required|integer|min:10'
+            'amount' => 'required|integer|min:10',
+            'category' => 'required|in:creative,academic,office',
         ];
     }
 }
