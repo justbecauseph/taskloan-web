@@ -9,6 +9,8 @@ class TaskFilter extends ModelFilter
     public function setup()
     {
         $this->unfulfilled();
+
+        $this->with($this->input('with', []));
     }
 
     public function category($category)
