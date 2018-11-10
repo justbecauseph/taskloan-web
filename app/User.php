@@ -38,8 +38,13 @@ class User extends Authenticatable
         return $this->hasMany(Task::class);
     }
 
-    public function getWalletAmountAttribute()
+    public function getWalletAmountAttribute(): int
     {
-        return $this->wallet ? $this->wallet->amount : 0;
+        return (int)($this->wallet ? $this->wallet->amount : 0);
+    }
+
+    public function decrementWallet($amount)
+    {
+        $this->wallet()->decrement('amount', $amount);
     }
 }

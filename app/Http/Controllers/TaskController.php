@@ -19,6 +19,9 @@ class TaskController extends Controller
         $task->user()->associate($request->user());
         $task->save();
 
+        $task->user->decrementWallet($task->amount);
+
+
         return redirect()
             ->route('home')
             ->with('status', 'Task created.');

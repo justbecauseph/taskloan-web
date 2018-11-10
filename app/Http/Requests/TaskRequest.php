@@ -13,7 +13,7 @@ class TaskRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->wallet_amount > (int)$this->input('amount');
     }
 
     /**
