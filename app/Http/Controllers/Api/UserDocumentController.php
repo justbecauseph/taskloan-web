@@ -23,7 +23,7 @@ class UserDocumentController extends Controller
         }
 
         if ($user->id_photo) {
-            if ($user->role === 'student' || $user->proof_billing_photo) {
+            if ($user->role === 'student' || $user->proof_of_billing_photo) {
                 $user->verified_at = now();
             }
         }
