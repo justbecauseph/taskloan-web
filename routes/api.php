@@ -15,6 +15,6 @@ use Illuminate\Http\Request;
 
 Route::post('/users', 'UserController@store');
 
-Route::middleware('auth.basic.auth')->group(function () {
-
+Route::middleware('auth.basic.once')->group(function () {
+    Route::post('/me/documents', 'UserDocumentController@store');
 });

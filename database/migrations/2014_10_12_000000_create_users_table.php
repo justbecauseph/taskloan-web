@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('role', ['student', 'taskmaster']);
+            $table->enum('role', ['student', 'taskmaster'])->index();
             $table->string('name');
             $table->string('mobile_number')->unique();
             $table->string('email')->unique();
@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('school')->nullable();
             $table->string('id_photo')->nullable();
             $table->string('proof_of_billing_photo')->nullable();
+            $table->timestamp('verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

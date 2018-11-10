@@ -3,6 +3,7 @@
 namespace TaskLoan\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use TaskLoan\Http\Controllers\Controller;
 use TaskLoan\Http\Requests\UserRequest;
 use TaskLoan\User;
@@ -17,6 +18,8 @@ class UserController extends Controller
             });
 
         $user = new User($data->toArray());
+
+        $user->password = Hash::make($data['password']);
 
         $user->save();
 
