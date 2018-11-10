@@ -17,4 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::as('task.')->prefix('/tasks')->group(function () {
+        Route::get('/create', 'TaskController@create')->name('create');
+        Route::post('/', 'TaskController@store')->name('store');
+    });
+});

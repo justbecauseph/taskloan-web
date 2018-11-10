@@ -26,10 +26,10 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <span class="d-inline-block align-middle">Tasks</span>
-                        <a href="#" class="btn btn-primary btn-sm">Create Task</a>
+                        <a href="{{ route('task.create') }}" class="btn btn-primary btn-sm">Create Task</a>
                     </div>
                     <div class="card-body">
-                        
+
                     </div>
                 </div>
             </div>
