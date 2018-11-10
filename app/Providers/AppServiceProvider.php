@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Providers;
+namespace TaskLoan\Providers;
 
+use TaskLoan\Observers\UserObserver;
+use TaskLoan\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -21,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function (\Illuminate\View\View $view) {
             $view->with('auth_user', Auth::user());
         });
+
+        User::observe(UserObserver::class);
     }
 
     /**
