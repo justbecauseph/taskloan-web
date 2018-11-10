@@ -15,6 +15,11 @@ class TaskFilter extends ModelFilter
         $this->with($this->input('with', []));
     }
 
+    public function id($id)
+    {
+        return $this->where('id', $id);
+    }
+
     public function category($category)
     {
         return $this->where('category', $category);
