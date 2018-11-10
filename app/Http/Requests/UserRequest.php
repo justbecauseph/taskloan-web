@@ -25,9 +25,9 @@ class UserRequest extends FormRequest
     {
         return [
             'role' => ['required', 'in:student,taskmaster'],
-            'mobileNumber' => ['required', 'regex:/^09[0-9]{9}$/'],
+            'mobileNumber' => ['required', 'regex:/^09[0-9]{9}$/', 'unique:users,mobile_number'],
             'password' => ['required'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users'],
             'name' => ['required'],
             'address' => ['required'],
             'school' => ['required_if:role,student'],
