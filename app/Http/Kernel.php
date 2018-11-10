@@ -3,6 +3,7 @@
 namespace TaskLoan\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use TaskLoan\Http\Middleware\ApiBasicAuth;
 
 class Kernel extends HttpKernel
 {
@@ -53,6 +54,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'auth' => \TaskLoan\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'auth.basic.once' => ApiBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
