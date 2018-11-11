@@ -58,9 +58,7 @@ class User extends Authenticatable
 
     public function claimedTask()
     {
-        return $this->hasOne(Task::class, 'claimed_by_user_id')
-            ->unfulfilled()
-            ->latest();
+        return $this->hasOne(Task::class, 'claimed_by_user_id')->latest();
     }
 
     public function getWalletAmountAttribute(): float

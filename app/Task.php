@@ -44,6 +44,6 @@ class Task extends Model
 
     public function scopeUnfulfilled($query)
     {
-        return $query->whereNull('verified_at');
+        return $query->whereNull('completed_at');
     }
 }

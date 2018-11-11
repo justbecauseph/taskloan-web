@@ -18,8 +18,7 @@ class TaskStatusController extends Controller
 
         switch ($request->input('status')) {
             case 'completed':
-                // FOR DEMO: Verify the task immediately.
-                $task->verified_at = $task->completed_at = now();
+                $task->completed_at = now();
                 break;
             case 'verified':
                 $task->verified_at = now();
