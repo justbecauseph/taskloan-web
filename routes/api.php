@@ -16,8 +16,10 @@ use Illuminate\Http\Request;
 Route::post('/users', 'UserController@store');
 
 Route::middleware('auth.basic.once')->group(function () {
+    Route::get('/me', 'UserController@show');
     Route::post('/me/documents', 'UserDocumentController@store');
     Route::post('/me/task', 'UserTaskController@store');
+    Route::delete('/me/task', 'UserTaskController@destroy');
     Route::get('/tasks', 'TaskController@index');
     Route::post('/tasks', 'TaskController@store');
     Route::post('/tasks/{task}/status', 'TaskStatusController@store');

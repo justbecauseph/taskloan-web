@@ -24,6 +24,8 @@ class User extends Authenticatable
         'address',
     ];
 
+    protected $appends = ['wallet_amount', 'loan_amount'];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -48,9 +50,19 @@ class User extends Authenticatable
         return $this->hasMany(Task::class, 'claimed_by_user_id');
     }
 
-    public function getWalletAmountAttribute(): int
+    public function claimedTask()
     {
-        return (int)($this->wallet ? $this->wallet->amount : 0);
+        return $this->hasOne(Task::class, 'claimed_by_user_id')->latest();
+    }
+
+    public function getWalletAmountAttribute(): float
+    {
+        return (float)($this->wallet ? $this->wallet->amount : 0);
+    }
+
+    public function getLoanAmountAttribute(): float
+    {
+        return (float)($this->claimedTask ? $this->claimedTask->amount : 0);
     }
 
     public function decrementWallet($amount)
