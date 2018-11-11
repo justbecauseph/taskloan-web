@@ -39,8 +39,8 @@ class TaskFilter extends ModelFilter
     public function status($status)
     {
         switch ($status) {
-            case 'unfulfilled':
-                return $this->unfulfilled();
+            case 'unclaimed':
+                return $this->wherenull('claimed_by_user_id');
             case 'completed':
                 return $this->whereNotNull('completed_at');
             case 'verified':
