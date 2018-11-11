@@ -7,6 +7,7 @@ use TaskLoan\Http\Controllers\Controller;
 use TaskLoan\Http\Requests\UserTaskRequest;
 use TaskLoan\Task;
 use TaskLoan\LoanApplication;
+use TaskLoan\User;
 
 class UserTaskController extends Controller
 {
@@ -27,5 +28,15 @@ class UserTaskController extends Controller
         $loanApplication->save();
 
         return $task;
+    }
+
+    public function destroy(Request $request)
+    {
+        /** @var User $user */
+        $user = $request->user();
+
+        $task = $user->claimedTask;
+        $task->claimedByUser()->dissociate();
+        $task->save();
     }
 }
