@@ -37,6 +37,8 @@ class UserTaskController extends Controller
 
         $task = $user->claimedTask;
         $task->claimedByUser()->dissociate();
+        $task->completed_at = null;
+        $task->verified_at = null;
         $task->save();
     }
 }
