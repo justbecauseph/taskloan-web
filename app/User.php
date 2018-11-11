@@ -37,7 +37,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     public function wallet()
@@ -67,7 +68,14 @@ class User extends Authenticatable
 
     public function getLoanAmountAttribute(): float
     {
-        return (float)($this->claimedTask ? $this->claimedTask->amount : 0);
+        if ($this->claimedTask) {
+            /** @var LoanApplication $loanApplication */
+            $loanApplication = $this->claimedTask->loanApplication;
+
+            return (float)(!$loanApplication->fulfilled_at ? $loanApplication->amount : 0);
+        }
+
+        return 0;
     }
 
     public function decrementWallet($amount)
@@ -88,5 +96,15 @@ class User extends Authenticatable
     public function hasNoClaims(): bool
     {
         return $this->claimedTasks()->unfulfilled()->count() === 0;
+    }
+
+    public function clearLoan()
+    {
+        /** @var LoanApplication $loanApplication */
+        $loanApplication = $this->claimedTask->loanApplication;
+
+        $loanApplication->fulfilled_at = now();
+
+        $loanApplication->save();
     }
 }

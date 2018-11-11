@@ -22,6 +22,11 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function loanApplication()
+    {
+        return $this->hasOne(LoanApplication::class);
+    }
+
     public function isClaimedBy(User $user): bool
     {
         return $this->claimedByUser && $this->claimedByUser->is($user);

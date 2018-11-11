@@ -20,6 +20,7 @@ Route::middleware('auth.basic.once')->group(function () {
     Route::post('/me/documents', 'UserDocumentController@store');
     Route::post('/me/task', 'UserTaskController@store');
     Route::delete('/me/task', 'UserTaskController@destroy');
+    Route::post('/me/task/status', 'TaskStatusController@store');
     Route::post('/me/wallet-amount', 'UserWalletAmountController@store');
     Route::get('/tasks', 'TaskController@index');
     Route::post('/tasks', 'TaskController@store');
