@@ -75,6 +75,11 @@ class User extends Authenticatable
         $this->wallet()->decrement('amount', $amount);
     }
 
+    public function incrementWallet($amount)
+    {
+        $this->wallet()->increment('amount', $amount);
+    }
+
     public function isVerified(): bool
     {
         return (bool)$this->verified_at;
