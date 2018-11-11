@@ -81,8 +81,8 @@
     <section class="features" id="features">
       <div class="container">
         <div class="section-heading text-center">
-          <h2>Unlimited Features, Unlimited Fun</h2>
-          <p class="text-muted">Check out what you can do with this app theme!</p>
+          <h2>Do Tasks, Get Loans</h2>
+          <p class="text-muted">Check out what you can do with TaskLoan!</p>
           <hr>
         </div>
         <div class="row">
@@ -104,7 +104,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <div class="row d-flex justify-content-center">
                 <div class="col-lg-6">
                   <div class="feature-item">
                     <i class="icon-present text-primary"></i>
@@ -112,13 +112,13 @@
                     <p class="text-muted">And will always be.</p>
                   </div>
                 </div>
-                <div class="col-lg-6">
+                <!--<div class="col-lg-6">
                   <div class="feature-item">
                     <i class="icon-lock-open text-primary"></i>
                     <h3>Open Source</h3>
                     <p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
                   </div>
-                </div>
+                </div>-->
               </div>
             </div>
           </div>
