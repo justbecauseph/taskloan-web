@@ -21,17 +21,18 @@ $factory->define(TaskLoan\User::class, function (Faker $faker) {
         'remember_token'    => str_random(10),
         'mobile_number'     => '0917' . str_pad(rand(0, 9999999), 7, 0, STR_PAD_LEFT),
         'address'           => 'Manila, Philippines',
+        'verified_at'       => now()
     ];
 });
 
 $factory->state(TaskLoan\User::class, 'taskmaster-role', [
     'email' => 'taskmaster@taskloan.pro',
-    'role'        => 'taskmaster',
-    'verified_at' => now()
+    'role'  => 'taskmaster',
+
 ]);
 
 $factory->state(TaskLoan\User::class, 'student-role', [
-    'email' => 'student@taskloan.pro',
+    'email'  => 'student@taskloan.pro',
     'role'   => 'student',
-    'school' => 'Polytechnic University of the Philippines'
+    'school' => 'Polytechnic University of the Philippines',
 ]);
