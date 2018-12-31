@@ -42,7 +42,7 @@ class TaskFilter extends ModelFilter
             case 'unclaimed':
                 return $this->wherenull('claimed_by_user_id');
             case 'completed':
-                return $this->whereNotNull('completed_at');
+                return $this->whereNotNull('completed_at')->whereNull('verified_at');
             case 'verified':
                 return $this->whereNotNull('verified_at');
             default:

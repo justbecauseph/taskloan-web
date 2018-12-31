@@ -25,13 +25,14 @@ class TaskStatusRequest extends FormRequest
 
     protected function isAuthorizedStudent(): bool
     {
-        /** @var Task $task */
-        $task = $this->route('task');
-
         /** @var User $user */
         $user = $this->user();
 
+        /** @var Task $task */
+        $task = $this->route('task', $user->claimedTask);
+
         return $user->role === 'student' &&
+            $task &&
             $task->isClaimedBy($user) &&
             $this->input('status') === 'completed';
     }
