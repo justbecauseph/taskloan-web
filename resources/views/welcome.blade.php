@@ -34,7 +34,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand font-weight-bold text-white js-scroll-trigger" href="#page-top">taskloan</a>
+        <a class="navbar-brand font-weight-bold js-scroll-trigger" href="#page-top">taskloan</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -72,7 +72,7 @@
           </div>
           <div class="col-lg-7 my-auto">
             <div class="header-content mx-auto">
-              <h1 class="mb-5">TaskLoan is a service-as-a-collateral borrowing platform.</h1>
+              <h1 class="my-5">TaskLoan is a service-as-a-collateral borrowing platform.</h1>
               <a href="#features" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
             </div>
           </div>
@@ -146,14 +146,15 @@
       <div class="container">
         <h2>We
           <i class="fas fa-heart"></i>
-          new friends!</h2>
-          <h6>Send us a ping at hello@justbecause.tech</h6>
+          new friends!
+        </h2>
+        <p>Message us at <a href="mailto:hello@justbecause.ph" class="text-secondary">hello@justbecause.ph</a></p>
       </div>
     </section>
 
     <footer>
       <div class="container">
-        <p>&copy; Just Because 2018. All Rights Reserved.</p>
+        <p>&copy; Just Because 2019. All Rights Reserved.</p>
         <ul class="list-inline">
           <li class="list-inline-item">
             <a href="#">Privacy</a>
