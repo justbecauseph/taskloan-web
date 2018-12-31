@@ -5,10 +5,29 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="TaskLoan is a service-as-a-collateral borrowing platform.">
+    <meta name="author" content="Just Because">
 
     <title>TaskLoan</title>
+
+    <!-- Primary Meta Tags -->
+    <title>Taskloan – Do Tasks, Get Loans</title>
+    <meta name="title" content="Taskloan – Do Tasks, Get Loans">
+    <meta name="description" content="TaskLoan is a service-as-a-collateral borrowing platform. No need to wait for many layers of verification. Putting potential in people needing financial help.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://taskloan.pro/">
+    <meta property="og:title" content="Taskloan – Do Tasks, Get Loans">
+    <meta property="og:description" content="TaskLoan is a service-as-a-collateral borrowing platform. No need to wait for many layers of verification. Putting potential in people needing financial help.">
+    <meta property="og:image" content="img/Login.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://taskloan.pro/">
+    <meta property="twitter:title" content="Taskloan – Do Tasks, Get Loans">
+    <meta property="twitter:description" content="TaskLoan is a service-as-a-collateral borrowing platform. No need to wait for many layers of verification. Putting potential in people needing financial help.">
+    <meta property="twitter:image" content="img/Login.png">
 
     <!-- favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -61,7 +80,7 @@
                 <div class="device">
                   <div class="screen">
                     <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                    <img src="img/Login.png" class="img-fluid" alt="">
+                    <img src="img/Login.png" class="img-fluid" alt="TaskLoan Login Screen">
                   </div>
                   <div class="button">
                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -94,7 +113,7 @@
                   <div class="feature-item">
                     <i class="icon-speedometer text-primary"></i>
                     <h3>Instant Loan Approval</h3>
-                    <p class="text-muted">No need to wait upon many layers of verification.</p>
+                    <p class="text-muted">No need to wait for many layers of verification.</p>
                   </div>
                 </div>
                 <div class="col-lg-6">
